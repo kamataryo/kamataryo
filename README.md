@@ -7,7 +7,7 @@
 $ npx kamataryo
 ```
 
-![screenshot]('./screenshot.png')
+![screenshot](./screenshot.png)
 
 ## development
 
