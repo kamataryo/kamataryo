@@ -18,7 +18,7 @@ const callbacks = {
 const promptOptions = [{
   type: 'list',
   name: 'key',
-  message: 'Contacts =>',
+  message: 'Contacts:',
   choices: Object.keys(callbacks),
 }]
 
@@ -33,7 +33,7 @@ const ask = async (promptOptions, callbacks) => {
 module.exports = () => {
   process.stdout.write('\n')
   termImg(avatar, { fallback: () => process.stdout.write('🐟🐟🐟\n🐟🐈🐟\n🐟🐟🐟\n') })
-  process.stdout.write(`\nHi, I'm ${chalk.cyan('kamataryo')}. I am a web developer and a naturalist.\n`)
-  process.stdout.write('My interests: 🐟🐸🐍🐈🌿💻\n\n')
+  process.stdout.write(`\nHi, I'm ${chalk.cyan('kamataryo')}. I am a web developer and naturalist.\n`)
+  process.stdout.write('My interests: 🐟🐸🐍🦎🦆🐈🌿💻\n\n')
   ask(promptOptions, callbacks)
 }

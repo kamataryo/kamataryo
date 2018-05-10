@@ -1,9 +1,13 @@
 # kamataryo CLI
 
+[![Build Status](https://travis-ci.org/kamataryo/kamataryo.svg?branch=master)](https://travis-ci.org/kamataryo/kamataryo)
+
 ```shell
-# About me.
+# About me
 $ npx kamataryo
 ```
+
+![screenshot]('./screenshot.png')
 
 ## development
 
@@ -11,5 +15,5 @@ $ npx kamataryo
 $ git clone 
 $ cd kamataryo
 $ npm install
-$ node ./src/index.js
+$ npm test
 ```
