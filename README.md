@@ -5,6 +5,8 @@
 ```shell
 # About me
 $ npx kamataryo
+# or open my twitter
+$ npx kamataryo twitter
 ```
 
 ![screenshot](./screenshot.png)

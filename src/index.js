@@ -22,6 +22,8 @@ const promptOptions = [{
   choices: Object.keys(callbacks),
 }]
 
+const arg = process.argv[process.argv.length - 1]
+
 const ask = async (promptOptions, callbacks) => {
   // eslint-disable-next-line no-constant-condition
   while (true) {
@@ -33,7 +35,15 @@ const ask = async (promptOptions, callbacks) => {
 module.exports = () => {
   process.stdout.write('\n')
   termImg(avatar, { fallback: () => process.stdout.write('🐟🐟🐟\n🐟🐈🐟\n🐟🐟🐟\n') })
-  process.stdout.write(`\nHi, I'm ${chalk.cyan('kamataryo')}. I am a web developer and naturalist.\n`)
+  process.stdout.write(`\nHi, I'm ${chalk.cyan('kamataryo')}, a web developer and naturalist.\n`)
   process.stdout.write('My interests: 🐟🐸🐍🦎🦆🐈🌿💻\n\n')
-  ask(promptOptions, callbacks)
+  const foundKey = Object.keys(callbacks)
+    .filter(key => key.toUpperCase() === arg.toUpperCase())[0]
+  if (foundKey) {
+    callbacks[foundKey]()
+    process.stdout.write(`${foundKey} has been opend.`)
+    process.exit(0)
+  } else {
+    ask(promptOptions, callbacks)
+  }
 }
