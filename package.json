@@ -4,7 +4,7 @@
   "description": "about me",
   "main": "./src/index.js",
   "bin": {
-    "kamataryo": "./src/index.js"
+    "kamataryo": "./src/kamataryo"
   },
   "devDependencies": {
     "eslint": "^4.19.1"
