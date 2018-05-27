@@ -15,12 +15,14 @@ const callbacks = {
   [chalk.yellow('Quit')]: () => process.exit(0),
 }
 
-const promptOptions = [{
-  type: 'list',
-  name: 'key',
-  message: 'Contacts:',
-  choices: Object.keys(callbacks),
-}]
+const promptOptions = [
+  {
+    type: 'list',
+    name: 'key',
+    message: 'Contacts:',
+    choices: Object.keys(callbacks),
+  },
+]
 
 const arg = process.argv[process.argv.length - 1]
 
@@ -34,14 +36,20 @@ const ask = async (promptOptions, callbacks) => {
 
 module.exports = () => {
   process.stdout.write('\n')
-  termImg(avatar, { fallback: () => process.stdout.write('🐟🐟🐟\n🐟🐈🐟\n🐟🐟🐟\n') })
-  process.stdout.write(`\nHi, I'm ${chalk.cyan('kamataryo')}, a web developer and naturalist.\n`)
+  termImg(avatar, {
+    fallback: () => process.stdout.write('🐟🐟🐟\n🐟🐈🐟\n🐟🐟🐟\n'),
+  })
+  process.stdout.write(
+    `\nHi, I'm ${chalk.cyan('kamataryo')}, a web developer and naturalist.\n`,
+  )
   process.stdout.write('My interests: 🐟🐸🐍🦎🦆🐈🌿💻\n\n')
-  const foundKey = Object.keys(callbacks)
-    .filter(key => key.toUpperCase() === arg.toUpperCase())[0]
+  const foundKey = Object.keys(callbacks).filter(
+    key => key.toUpperCase() === arg.toUpperCase(),
+  )[0]
   if (foundKey) {
+    process.stdout.write(`opeing ${foundKey} ... `)
     callbacks[foundKey]()
-    process.stdout.write(`${foundKey} has been opend.`)
+    process.stdout.write('done')
     process.exit(0)
   } else {
     ask(promptOptions, callbacks)
